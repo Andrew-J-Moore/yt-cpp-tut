@@ -3,15 +3,15 @@
 
 int main() {
 
-    std::cout << pow(3,3) << std::endl;
-    std::cout << pow(3) << std::endl; 
+    std::cout << utilz::pow(3,3) << std::endl;
+    std::cout << utilz::pow(3) << std::endl << std::endl; 
 
-    // Rectangle rectangle;
-    // rectangle.length = 10;
-    // rectangle.width = 5;
+    Rectangle rectangle;
+    rectangle.length = 10;
+    rectangle.width = 5;
 
-    // std::cout << area(rectangle.length, rectangle.width) << std::endl;
-    // std::cout << area(rectangle.length) << std::endl;
-    // std::cout << area(rectangle) << std::endl;
+    std::cout << utilz::area(rectangle.length, rectangle.width) << std::endl;
+    std::cout << utilz::area(rectangle.length) << std::endl;
+    std::cout << utilz::area(rectangle) << std::endl;
     return 0;
 }

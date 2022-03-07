@@ -2,16 +2,18 @@
 #include <vector>
 #include <array>
 
-int main() {
-    std::array<int, 6> data = {1,2,3,4,5,6};
+namespace utilz {
+    void print_array(const int data[], int size) {
+        for(int i = 0; i < 6; i++) {
+            std::cout << data[i] << "\t";
 
-    for(int n : data) {
-        std::cout << n << "\t";
+        }
+        std::cout << "\n";
     }
+}
 
-    // for(int i = 0; i < 6; i++) {
-    //     std::cout << data[i] << "\t";
+int main() {
+    int data[] = {1,2,3,4,5,6};
 
-    // }
-    std::cout << "\n";
+    utilz::print_array(data, 6);
 }
