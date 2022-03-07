@@ -4,11 +4,35 @@
 #include <ctime>
 #include <vector>
 #include <array>
+#include <fstream>
 
-void print_array(std::array<int, 251> array, int count){
+void save_score(int count) {
+    std::ifstream input("best_score.txt");
 
-    for(int i = 0; i < count; i++){
-        std::cout << array[i] << "\t";
+    if (!input.is_open()) { 
+        std::cout << "Unable to read file.\n";
+        return;
+    }
+
+    int best_score;
+    input >> best_score;
+
+    std::ofstream output("best_score.txt");
+    if (!output.is_open()){
+        std::cout << "Unable to write to file.\n";
+    }
+
+    if(count < best_score) {
+        output << count;
+    } else {
+        output << best_score;
+    }
+}
+
+void print_array(std::vector<int> guesses){
+
+    for(int i = 0; i < guesses.size(); i++){
+        std::cout << guesses[i] << "\t";
     }
 
     std::cout << std::endl;
@@ -16,7 +40,7 @@ void print_array(std::array<int, 251> array, int count){
 }
 
 void play_game() {
-    std::array<int, 251> guesses;
+    std::vector<int> guesses;
     int count = 0;
 
     int random = rand() % 251;
@@ -27,7 +51,8 @@ void play_game() {
 
         int guess;
         std::cin >> guess;
-        guesses[count++] = guess;
+        count++;
+        guesses.push_back(guess);
     
         if(guess == random) {
             std::cout << "You win!\n";
@@ -38,7 +63,10 @@ void play_game() {
             std::cout << "Too high!\n";
         }
     }
-    print_array(guesses, count);
+
+    save_score(count);
+
+    print_array(guesses);
 }
 
 int main() 
