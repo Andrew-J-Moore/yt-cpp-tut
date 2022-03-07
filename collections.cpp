@@ -1,24 +1,17 @@
 #include <iostream>
-
-void print_array(int array[], int size){
-
-    for(int i=0; i<size; i++) {
-        std::cout << array[i] << "\t";
-    }
-
-}
+#include <vector>
+#include <array>
 
 int main() {
-    const int SIZE = 10;
-    int guesses[SIZE];
+    std::array<int, 6> data = {1,2,3,4,5,6};
 
-    for(int i = 0; i<SIZE; i++){
-        std::cin >> guesses[i];
+    for(int n : data) {
+        std::cout << n << "\t";
     }
 
-    // std::cin << guesses[];
-    print_array(guesses, SIZE);
-    std::cout << "\n";
+    // for(int i = 0; i < 6; i++) {
+    //     std::cout << data[i] << "\t";
 
-    return 0;
+    // }
+    std::cout << "\n";
 }
