@@ -1,24 +1,19 @@
 #include <iostream>
+#include <string>
+#include "user.h"
+#include "teacher.h"
+#include "student.h"
 
-class User {
-    std::string status = "Gold";
-    public:
-        std::string first_name;
-        std::string last_name;
-        std::string get_status() {
-            return status;
-        }
-    
-};
+void do_something(User &user) {
+    user.output();
+}
 
 int main() {
+    Teacher teacher;
+    Student student;
+    User& u = teacher;
+    User& v = student;
 
-    User me;
-    me.first_name = "Andrew";
-    me.last_name = "Moore";
-    // me.status = "Bored";
-
-    std::cout << "Status: " << me.get_status() << std::endl;
-
-    return 0;
+    do_something(u);
+    do_something(v);
 }
